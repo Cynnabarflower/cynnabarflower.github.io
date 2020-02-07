@@ -1,7 +1,7 @@
 #svg_map {
     z-index: 0;
 }
-#toolTip {
+ToolTipClass {
     display: none;
     position: absolute;
     z-index: 1;
@@ -24,11 +24,12 @@
     font-family: arial;
     color: #000000;
 }
-#toolTipName {
+.ToolTipNameClass {
     color: #000;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     font-size: 14px;
     font-weight:bold;
     padding: 5px;
     font-family: arial;
+    position: absolute;
 }
