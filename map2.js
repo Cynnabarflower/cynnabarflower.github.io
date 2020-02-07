@@ -13,8 +13,8 @@ function init_yaMap() {
         quality: 1
     }).then(function (result) {
 
-        var scaleX = 4;
-        var scaleY = 6;
+        var scaleX = 1;
+        var scaleY = 1.2;
         for (var i = 0; i < result.features.length; i++) {
             var text_path = '';
             for (var coord = 0; coord < result.features[i].geometry.coordinates.length; coord++) {
