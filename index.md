@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -13,6 +12,8 @@
 </div>
 <div id="map">
 </div>
+<h3>Первая карта - сделана вручную, она не очень точная. Вторая карта - берется из яндекса</h3>
+<h4>Будем раскрашивать регионы в зависимости о чего ни будь</h4>
             <!-- start Fla-shop.com HTML5 Map -->
             <div style="position: relative;">
                 <div id = 'maps_place'></div>

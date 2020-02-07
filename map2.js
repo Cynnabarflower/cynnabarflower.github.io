@@ -8,7 +8,7 @@ ymaps.ready(function(){
 
 function init_yaMap() {
     ya_map_data = {};
-    return ymaps.borders.load('001', {
+    return ymaps.borders.load('RU', {
         lang: 'ru',
         quality: 1
     }).then(function (result) {
