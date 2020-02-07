@@ -13,14 +13,14 @@ function init_yaMap() {
         quality: 1
     }).then(function (result) {
 
-        var scaleX = 3;
-        var scaleY = 5;
+        var scaleX = 4;
+        var scaleY = 6;
         for (var i = 0; i < result.features.length; i++) {
             var text_path = '';
             for (var coord = 0; coord < result.features[i].geometry.coordinates.length; coord++) {
                 var coordinates = result.features[i].geometry.coordinates[coord];
                 text_path += ('M ' + coordinates[0][1] * scaleX + ',' + (100 - coordinates[0][0]) * scaleY) + '';
-                for (var j = 1; j < coordinates.length; j++) {
+                for (var j = 1; j < coordinates.length; j+=2) {
                     text_path += ('L' + (coordinates[j][1] * scaleX) + ',' + (100 - coordinates[j][0]) * scaleY + ' ');
                 }
                 text_path += 'Z ';
