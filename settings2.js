@@ -991,7 +991,7 @@ map_data = {
   "RU-MOW": {
     "id": 76,
     "name": "Москва",
-    "shortname": "RU-MOW",
+    "shortname": "MOW",
     "link": "",
     "comment": "",
     "image": "",
