@@ -94,7 +94,7 @@ function myMap(mapId, map_data, parent_id) {
             html += ' width: 100%; height: 100%;';
         }
         html += '"><div id="toolTip' + mapId + '" class="ToolTipClass"><table id="ToolTipFrame' + mapId + '" class="ToolTipFrameClass"><tr id="ToolTipFrame' + mapId + '" class="ToolTipFrameClass" valign="top"><td id="toolTipImage' + mapId + '"></td><td id="toolTipComment' + mapId + '" class="toolTipCommentClass"></td></tr></table><div id="toolTipName' + mapId + '" class="ToolTipNameClass"></div></div></div>';
-        html += '<div id="mapTip' + mapId + '" class="ToolTipClass">tiptiptiptiptipt</div>'
+        html += '<div id="mapTip' + mapId + '" class="ToolTipClass"></div>'
         //document.writeln(html);
         let div = document.createElement('div');
         div.innerHTML = html;
