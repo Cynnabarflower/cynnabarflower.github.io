@@ -404,7 +404,7 @@ function myMap(mapId, map_data, parent_id) {
                 "stroke-linejoin": "round"
             }));
         } else {
-            currentSet.push(svg.text())
+           // currentSet.push(svg.text())
         }
         currentSet[mapLayers.shadow].id = currentData.shortname + '_stext';
 
