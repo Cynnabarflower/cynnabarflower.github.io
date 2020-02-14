@@ -9,8 +9,8 @@ shadowX			= 1;
 shadowY			= 2;
     isNewWindow		= false,
 
-    borderColor		= "#ffffff",
-    borderColorOver		= "#ffffff",
+    borderColor		= "#ff0000",
+    borderColorOver		= "#ff0000",
 
     nameColor		= "#ffffff",
     nameFontSize		= "11px",
