@@ -305,7 +305,7 @@ function myMap(mapId, map_data, parent_id) {
             for (city_id in currentData.unis) {
                 numberOfUnis += currentData.unis[city_id].unis.length
             }
-            currentData['comment'] += "<br>" + numberOfUnis
+            currentData['comment'] += ""+numberOfUnis
             maxUnis = Math.max(maxUnis, numberOfUnis);
             minUnis = Math.min(minUnis, numberOfUnis);
         }
