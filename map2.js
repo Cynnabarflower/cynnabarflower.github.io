@@ -404,7 +404,7 @@ function myMap(mapId, map_data, parent_id) {
                 "stroke-linejoin": "round"
             }));
         } else {
-           // currentSet.push(svg.text())
+            currentSet.push(svg.text())
         }
         currentSet[mapLayers.shadow].id = currentData.shortname + '_stext';
 
@@ -437,6 +437,7 @@ function myMap(mapId, map_data, parent_id) {
             });
         }
         ;
+       toolTip()
         currentSet.scale(scale, scale, scale, scale);
         var O;
         currentSet.hover(function (Y) {
@@ -481,6 +482,7 @@ function myMap(mapId, map_data, parent_id) {
         toolTip();
         for (var c in map_data) {
             loadRegion(c)
+            
         }
         svg_map.onmousemove = moveToolTip;
     };
