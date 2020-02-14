@@ -388,7 +388,8 @@ function myMap(mapId, map_data, parent_id) {
             fill: nameColor,
             "font-weight": nameFontWeight,
             "font-size": nameFontSize,
-            "cursor": "default"
+            "cursor": "default",
+            "display" : currentData.shortname ? "block" : "none"
         }));
 
         currentSet[mapLayers.main].id = currentData.shortname;
