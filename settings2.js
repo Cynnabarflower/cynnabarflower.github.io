@@ -12,7 +12,7 @@ shadowY			= 2;
     borderColor		= "#ff0000",
     borderColorOver		= "#ff0000",
 
-    nameColor		= "#ffffff",
+    nameColor		= "#00ff00",
     nameFontSize		= "11px",
     nameFontWeight		= "bold",
     nameStroke = false,
