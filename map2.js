@@ -1,9 +1,9 @@
 new myMap('123', JSON.parse(JSON.stringify(clean_map_data)), 'maps_place');
 
 ymaps.ready(function(){
-    init_yaMap(3, 5, 1, 1/1.0).then(ya_map_data => {
-        new myMap('666', ya_map_data, 'maps_place');
-    });
+ //   init_yaMap(3, 5, 1, 1/1.0).then(ya_map_data => {
+ //       new myMap('666', ya_map_data, 'maps_place');
+ //   });
 });
 
 function init_yaMap(scaleX, scaleY, quality, step) {
