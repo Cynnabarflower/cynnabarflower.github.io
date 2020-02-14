@@ -437,7 +437,7 @@ function myMap(mapId, map_data, parent_id) {
             });
         }
         ;
-       toolTip()
+       
         currentSet.scale(scale, scale, scale, scale);
         var O;
         currentSet.hover(function (Y) {
@@ -479,12 +479,12 @@ function myMap(mapId, map_data, parent_id) {
         } else {
             svg = new Raphael("svg_map" + mapId, xSize * scale, ySize * scale);
         }
-        toolTip();
         for (var c in map_data) {
             loadRegion(c)
             
         }
-        svg_map.onmousemove = moveToolTip;
+       toolTip()
+       svg_map.onmousemove = moveToolTip;
     };
 
     function stateHighlightIn(Y, E, p) {
