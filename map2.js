@@ -384,7 +384,7 @@ function myMap(mapId, map_data, parent_id) {
             stroke: borderColor,
             "stroke-width": 1.01
         }));
-     if (currentData.shortname) {
+     if (currentData.outline.label.x || currentData.outline.label.y) {
         currentSet.push(svg.text(currentData.outline.label.x, currentData.outline.label.y, currentData.shortname).attr({
             fill: nameColor,
             "font-weight": nameFontWeight,
