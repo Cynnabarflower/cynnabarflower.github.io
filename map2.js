@@ -384,14 +384,14 @@ function myMap(mapId, map_data, parent_id) {
             stroke: borderColor,
             "stroke-width": 1.01
         }));
-     if (currentData.outline.label.x || currentData.outline.label.y) {
+    
         currentSet.push(svg.text(currentData.outline.label.x, currentData.outline.label.y, currentData.shortname).attr({
             fill: nameColor,
             "font-weight": nameFontWeight,
             "font-size": nameFontSize,
             "cursor": "default",
         }));
-     }
+     
 
         currentSet[mapLayers.main].id = currentData.shortname;
         currentSet[mapLayers.text].id = currentData.shortname + '_text';
