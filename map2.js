@@ -1,9 +1,11 @@
-new myMap('123', JSON.parse(JSON.stringify(clean_map_data)), 'maps_place');
+new myMap('123', JSON.parse(JSON.stringify(clean_map_data)), 'maps_place')
+
+
 
 ymaps.ready(function(){
- //   init_yaMap(3, 5, 1, 1/1.0).then(ya_map_data => {
- //       new myMap('666', ya_map_data, 'maps_place');
- //   });
+    init_yaMap(3, 5, 1, 1/1.0).then(ya_map_data => {
+        new myMap('666', ya_map_data, 'maps_place');
+    });
 });
 
 function init_yaMap(scaleX, scaleY, quality, step) {
@@ -74,7 +76,7 @@ function init_yaMap(scaleX, scaleY, quality, step) {
 
 function myMap(mapId, map_data, parent_id) {
     var
-        svg, originalWidth = 620,
+        raph, svg, originalWidth = 620,
         originalHeight = 360,
         mapRatio = originalWidth / originalHeight,
         xSize, ySize, scale,
@@ -89,12 +91,14 @@ function myMap(mapId, map_data, parent_id) {
 
 
     function setSvgMapHTML(isWidthUndefined) {
-        var html =  '<div id="svg_map' + mapId + '" style="position: relative;';
+        var html =  '<div id="map_container'+mapId+'"> <div id="svg_map' + mapId + '" style="position: relative;';
         if (isWidthUndefined) {
             html += ' width: 100%; height: 100%;';
         }
-        html += '"><div id="toolTip' + mapId + '" class="ToolTipClass"><table id="ToolTipFrame' + mapId + '" class="ToolTipFrameClass"><tr id="ToolTipFrame' + mapId + '" class="ToolTipFrameClass" valign="top"><td id="toolTipImage' + mapId + '"></td><td id="toolTipComment' + mapId + '" class="toolTipCommentClass"></td></tr></table><div id="toolTipName' + mapId + '" class="ToolTipNameClass"></div></div></div>';
-        //html += '<div id="mapTip' + mapId + '" class="ToolTipClass"></div>'
+        html += '">';
+        html += '<div id="toolTip' + mapId + '" class="ToolTipClass"><table id="ToolTipFrame' + mapId + '" class="ToolTipFrameClass"><tr id="ToolTipFrame' + mapId + '" class="ToolTipFrameClass" valign="top"><td id="toolTipImage' + mapId + '"></td><td id="toolTipComment' + mapId + '" class="toolTipCommentClass"></td></tr></table><div id="toolTipName' + mapId + '" class="ToolTipNameClass"></div></div></div>';
+        html += '<div id="mapTip' + mapId + '" class="ToolTipClass"></div>'
+        html += '</div>'
         //document.writeln(html);
         let div = document.createElement('div');
         div.innerHTML = html;
@@ -293,6 +297,8 @@ function myMap(mapId, map_data, parent_id) {
 
     function main() {
 
+
+
         maxUnis = -1;
         minUnis = 99999;
         for (var region_name in map_data) {
@@ -305,7 +311,7 @@ function myMap(mapId, map_data, parent_id) {
             for (city_id in currentData.unis) {
                 numberOfUnis += currentData.unis[city_id].unis.length
             }
-            currentData['comment'] += ""+numberOfUnis
+            currentData['comment'] += "<br>" + numberOfUnis
             maxUnis = Math.max(maxUnis, numberOfUnis);
             minUnis = Math.min(minUnis, numberOfUnis);
         }
@@ -384,14 +390,12 @@ function myMap(mapId, map_data, parent_id) {
             stroke: borderColor,
             "stroke-width": 1.01
         }));
-    
         currentSet.push(svg.text(currentData.outline.label.x, currentData.outline.label.y, currentData.shortname).attr({
             fill: nameColor,
             "font-weight": nameFontWeight,
             "font-size": nameFontSize,
-            "cursor": "default",
+            "cursor": "default"
         }));
-     
 
         currentSet[mapLayers.main].id = currentData.shortname;
         currentSet[mapLayers.text].id = currentData.shortname + '_text';
@@ -439,7 +443,6 @@ function myMap(mapId, map_data, parent_id) {
             });
         }
         ;
-       
         currentSet.scale(scale, scale, scale, scale);
         var O;
         currentSet.hover(function (Y) {
@@ -470,10 +473,17 @@ function myMap(mapId, map_data, parent_id) {
 
     function map_init() {
 
+        let html = "<input id='range_day_night"+mapId+"' type='range' min='0' max=24*60-1 step='any' width='inherit'>";
+        document.getElementById("map_container" + mapId).insertAdjacentHTML('afterbegin', html);
+        document.getElementById('range_day_night'+mapId).oninput = function (E) {
+            this.value
+        }
+
         if (typeof mapWidth === 'undefined') {
             svg_map.style.width = xSize + 'px';
             svg_map.style.height = ySize + 'px';
             svg = new Raphael("svg_map" + mapId, xSize, ySize);
+
             svg.setViewBox(0, 0, xSize, ySize, true);
             /*            var e = document.querySelector("svg");
                         e.setAttribute('width', '100%');
@@ -481,13 +491,27 @@ function myMap(mapId, map_data, parent_id) {
         } else {
             svg = new Raphael("svg_map" + mapId, xSize * scale, ySize * scale);
         }
+
+/*  svg_map.attr({fill:'0-rgba(0, 153, 255, 0.2)-rgba(200, 200, 200, 0):50-rgba(0, 153, 255, 0.2)'})
+    var rect = svg.rect(0, 0, svg.width, svg.height);
+        rect.attr({
+            "fill": "180-#000000-#ffffff",
+            "fill-opacity": 0.25,
+            "opacity" : 0.5
+        });*/
+
+
+
+        toolTip();
+
+
+
         for (var c in map_data) {
             loadRegion(c)
-            
         }
-       toolTip()
-       svg_map.onmousemove = moveToolTip;
-    };
+        svg_map.onmousemove = moveToolTip;
+
+    }
 
     function stateHighlightIn(Y, E, p) {
         var n = 'stroke',
