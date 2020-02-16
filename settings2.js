@@ -3739,7 +3739,7 @@ clean_map_data = {
     "name": "Камчатский край",
     "shortname": "RU-KAM",
     "link": "",
-    "comment": "City name city name<br>City name city name",
+    "comment": "",
     "image": "",
     "color_map": "#366CA3",
     "color_map_over": "#3333aa",
