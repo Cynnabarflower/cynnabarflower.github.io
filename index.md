@@ -18,6 +18,7 @@
 </div>
 <div id="map">
 </div>
+    <b>Количество вузов по регионам</b>
             <!-- start Fla-shop.com HTML5 Map -->
             <div style="position: relative;">
                 <div id = 'maps_place'></div>
