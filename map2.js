@@ -15,6 +15,7 @@ function init_yaMap(scaleX, scaleY, quality, step) {
         quality: quality
     }).then(function (result) {
 
+        var allCoordinates = [];
         for (var i = 0; i < result.features.length; i++) {
             var shortname = result.features[i].properties.iso3166;
 
@@ -23,8 +24,11 @@ function init_yaMap(scaleX, scaleY, quality, step) {
                 minY = 999999999999,
                 maxX = -99999999999,
                 maxY = -99999999999;
-                for (var coord = 0; coord < result.features[i].geometry.coordinates.length; coord++) {
+            var regCoords = [];
+            regCoords.push(result.features[i].geometry.coordinates);
+            for (var coord = 0; coord < result.features[i].geometry.coordinates.length; coord++) {
                     var coordinates = result.features[i].geometry.coordinates[coord];
+
                     text_path += ('M ' + coordinates[0][1] * scaleX + ',' + (100 - coordinates[0][0]) * scaleY) + '';
                     for (var j = 1; j < coordinates.length; j += step) {
                         if (coord === 0) {
@@ -38,6 +42,7 @@ function init_yaMap(scaleX, scaleY, quality, step) {
                     text_path += ('L' + (coordinates[(coordinates.length - 1)][1] * scaleX) + ',' + (100 - coordinates[(coordinates.length - 1)][0]) * scaleY + ' ');
                     text_path += 'Z ';
                 }
+            allCoordinates.push({name: shortname, coordinates: regCoords});
 
             if (shortname in ya_map_data) {
               ya_map_data[shortname].outline.path = text_path;
@@ -45,6 +50,7 @@ function init_yaMap(scaleX, scaleY, quality, step) {
                   x: (maxX+minX)/2,
                   y: (maxY+minY)/2
               }
+              ya_map_data[shortname].comment = "center on "+((maxX+minX)/2)+"; "+((maxY+minY)/2)
             } else
             ya_map_data[shortname] = {
                 id: i,
@@ -69,6 +75,7 @@ function init_yaMap(scaleX, scaleY, quality, step) {
             };
 
         }
+        allCoordinates = JSON.stringify(allCoordinates);
         return ya_map_data;
     });
 }

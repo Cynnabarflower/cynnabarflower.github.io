@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #fdfeff 0%, #afcfff 100%);
+        }
+    </style>
+</head>
+<body>
+</div>
+<div id="map">
+</div>
+<div class="meter orange nostripes">
+    <span style="width: 157px;"></span>
+</div>
+<h1>Первая карта - сделана вручную, она не очень точная. Вторая карта - берется из яндекс карт</h1>
+<h2>Регионы раскрашены в зависимости от количества вузов (временно)</h2>
+
+<table width="100%">
+    <tr>
+        <td width="20%">
+            <div id="stat_place"></div>
+        </td>
+        <td>
+            <div style="position: relative;">
+                <div id='maps_place'>
+                </div>
+                <link href="map.css" rel="stylesheet" type="text/css">
+                <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=4ec38fbd-24d7-4327-8456-d8a9f925befb"
+                        type="text/javascript"></script>
+                <script src="clean_map.js" type="text/javascript"></script>
+                <script src="raphael.js" type="text/javascript"></script>
+                <script src="settings.js" type="text/javascript"></script>
+                <script src="default_map_data.js" type="text/javascript"></script>
+                <script src="map_values.js" type="text/javascript"></script>
+                <script src="map.js" type="text/javascript"></script>
+            </div>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
